@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You 💗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Soft background decorations -->
+    <div id="decorations"></div>
+
+    <!-- =========================
+         OPENING GIFT
+    ========================== -->
+    <section id="opening" class="screen active">
+        <div class="opening-content">
+
+            <p class="eyebrow">A LITTLE LOVE FOR YOU</p>
+
+            <!-- Simple SVG bouquet inspired by the reference image -->
+            <div class="bouquet-wrap" id="bouquet">
+                <svg class="bouquet" viewBox="0 0 420 500" xmlns="http://www.w3.org/2000/svg" aria-label="Pink wrapped flower bouquet">
+
+                    <!-- soft shadow -->
+                    <ellipse cx="210" cy="438" rx="135" ry="25" class="shadow"/>
+
+                    <!-- stems -->
+                    <g class="stems" fill="none" stroke-linecap="round">
+                        <path d="M205 350 C175 285 125 235 105 180"/>
+                        <path d="M210 350 C205 275 185 210 180 135"/>
+                        <path d="M215 350 C225 275 250 220 275 150"/>
+                        <path d="M220 350 C260 290 315 250 325 195"/>
+                        <path d="M195 350 C165 305 95 285 75 235"/>
+                    </g>
+
+                    <!-- leaves -->
+                    <g class="leaves">
+                        <ellipse cx="145" cy="280" rx="48" ry="15" transform="rotate(-35 145 280)"/>
+                        <ellipse cx="270" cy="285" rx="48" ry="15" transform="rotate(30 270 285)"/>
+                        <ellipse cx="120" cy="225" rx="42" ry="13" transform="rotate(-50 120 225)"/>
+                        <ellipse cx="300" cy="240" rx="42" ry="13" transform="rotate(45 300 240)"/>
+                        <ellipse cx="175" cy="245" rx="38" ry="12" transform="rotate(25 175 245)"/>
+                    </g>
+
+                    <!-- pink tulips -->
+                    <g class="tulip" transform="translate(115 160)">
+                        <path d="M0 65 C-35 45 -38 5 -22 -28 C-10 -8 0 -2 0 -2 C8 -5 20 -14 29 -30 C43 8 34 46 0 65Z"/>
+                        <path d="M0 60 C-12 35 -12 8 0 -14 C12 8 12 35 0 60Z" class="highlight"/>
+                    </g>
+
+                    <g class="tulip" transform="translate(205 130) scale(1.15)">
+                        <path d="M0 65 C-35 45 -38 5 -22 -28 C-10 -8 0 -2 0 -2 C8 -5 20 -14 29 -30 C43 8 34 46 0 65Z"/>
+                        <path d="M0 60 C-12 35 -12 8 0 -14 C12 8 12 35 0 60Z" class="highlight"/>
+                    </g>
+
+                    <g class="tulip" transform="translate(285 165)">
+                        <path d="M0 65 C-35 45 -38 5 -22 -28 C-10 -8 0 -2 0 -2 C8 -5 20 -14 29 -30 C43 8 34 46 0 65Z"/>
+                        <path d="M0 60 C-12 35 -12 8 0 -14 C12 8 12 35 0 60Z" class="highlight"/>
+                    </g>
+
+                    <!-- white tulip -->
+                    <g class="white-tulip" transform="translate(155 190) scale(.85)">
+                        <path d="M0 65 C-35 45 -38 5 -22 -28 C-10 -8 0 -2 0 -2 C8 -5 20 -14 29 -30 C43 8 34 46 0 65Z"/>
+                        <path d="M0 60 C-12 35 -12 8 0 -14 C12 8 12 35 0 60Z" class="highlight"/>
+                    </g>
+
+                    <!-- sunflowers -->
+                    <g class="sunflower" transform="translate(82 215)">
+                        <g class="petals">
+                            <ellipse cy="-25" rx="10" ry="25"/>
+                            <ellipse cy="25" rx="10" ry="25"/>
+                            <ellipse cx="-25" rx="25" ry="10"/>
+                            <ellipse cx="25" rx="25" ry="10"/>
+                            <ellipse transform="rotate(45)" cy="-25" rx="10" ry="25"/>
+                            <ellipse transform="rotate(45)" cy="25" rx="10" ry="25"/>
+                            <ellipse transform="rotate(45)" cx="-25" rx="25" ry="10"/>
+                            <ellipse transform="rotate(45)" cx="25" rx="25" ry="10"/>
+                        </g>
+                        <circle r="18" class="center"/>
+                    </g>
+
+                    <g class="sunflower" transform="translate(325 185) scale(.9)">
+                        <g class="petals">
+                            <ellipse cy="-25" rx="10" ry="25"/>
+                            <ellipse cy="25" rx="10" ry="25"/>
+                            <ellipse cx="-25" rx="25" ry="10"/>
+                            <ellipse cx="25" rx="25" ry="10"/>
+                            <ellipse transform="rotate(45)" cy="-25" rx="10" ry="25"/>
+                            <ellipse transform="rotate(45)" cy="25" rx="10" ry="25"/>
+                            <ellipse transform="rotate(45)" cx="-25" rx="25" ry="10"/>
+                            <ellipse transform="rotate(45)" cx="25" rx="25" ry="10"/>
+                        </g>
+                        <circle r="18" class="center"/>
+                    </g>
+
+                    <!-- lavender -->
+                    <g class="lavender">
+                        <path d="M120 315 C115 260 110 220 105 180"/>
+                        <path d="M300 315 C300 265 305 225 315 185"/>
+                        <g class="buds">
+                            <circle cx="103" cy="190" r="7"/><circle cx="101" cy="207" r="7"/>
+                            <circle cx="105" cy="224" r="7"/><circle cx="109" cy="241" r="7"/>
+                            <circle cx="311" cy="193" r="7"/><circle cx="308" cy="210" r="7"/>
+                            <circle cx="306" cy="227" r="7"/><circle cx="303" cy="244" r="7"/>
+                        </g>
+                    </g>
+
+                    <!-- small chamomile -->
+                    <g class="chamomile" transform="translate(360 260)">
+                        <g>
+                            <ellipse cy="-19" rx="7" ry="18"/><ellipse cy="19" rx="7" ry="18"/>
+                            <ellipse cx="-19" rx="18" ry="7"/><ellipse cx="19" rx="18" ry="7"/>
+                            <ellipse transform="rotate(45)" cy="-19" rx="7" ry="18"/>
+                            <ellipse transform="rotate(45)" cy="19" rx="7" ry="18"/>
+                        </g>
+                        <circle r="7"/>
+                    </g>
+
+                    <!-- wrapping paper -->
+                    <path class="wrapper-back" d="M70 285 L350 285 L285 430 Q210 455 135 430Z"/>
+                    <path class="wrapper-left" d="M70 285 L210 315 L135 430Z"/>
+                    <path class="wrapper-right" d="M350 285 L210 315 L285 430Z"/>
+                    <path class="wrapper-fold" d="M115 300 L210 335 L305 300 L285 430 Q210 455 135 430Z"/>
+
+                    <!-- ribbon -->
+                    <g class="ribbon">
+                        <path d="M210 360 C180 325 135 330 135 355 C135 382 176 382 210 360Z"/>
+                        <path d="M210 360 C240 325 285 330 285 355 C285 382 244 382 210 360Z"/>
+                        <path d="M210 350 L185 435 L210 418 L235 435Z"/>
+                        <circle cx="210" cy="360" r="12"/>
+                    </g>
+
+                   
+
+                    <!-- tag -->
+                    <g class="tag" transform="translate(275 335) rotate(8)">
+                        <path d="M0 0 L75 0 L65 55 L0 55Z"/>
+                        <circle cx="10" cy="10" r="3"/>
+                        <text x="18" y="30">For You</text>
+                    </g>
+                </svg>
+            </div>
+
+           
+
+            <button id="openGift" class="gift-button">
+                Open Your Gift <span>💗</span>
+            </button>
+
+            <p class="tiny-footer">MADE WITH A LITTLE EXTRA LOVE</p>
+        </div>
+    </section>
+
+    <!-- =========================
+         MAIN PAGE
+    ========================== -->
+    <main id="mainPage" class="hidden">
+
+        <header class="hero">
+          
+            <h1>For You <span>💗</span></h1>
+            
+        </header>
+
+        <section class="intro card">
+            <div class="mini-flower">🌷</div>
+            
+            <p>
+                I just wanted to make you something small to remind you
+                that you're doing better than you think. Especially now,
+                with your exam later, I hope this gives you a little
+                extra strength and a reason to smile.
+            </p>
+        </section>
+
+       <!-- MUSIC -->
+<button id="musicToggle" class="music-btn" aria-label="Play or pause music">
+    🎵
+</button>
+
+<audio id="bgMusic" loop>
+    <source src="./musicc.mp3/musicc.mp3" type="audio/mpeg">
+</audio>
+     
+        <!-- MEMORIES -->
+        <section class="memories">
+            <p class="section-label">LITTLE MEMORIES</p>
+            <h2>Moments worth keeping 💗</h2>
+
+            <div class="gallery">
+                <figure class="photo-card featured">
+                    <img src="photo1.jpg/photo1.jpg" alt="Memory 1">
+                    <figcaption>A beautiful memory 💗</figcaption>
+                </figure>
+
+                <figure class="photo-card">
+                    <img src="photo2.jpg/photo2.jpg"alt="Memory 2">
+                 
+                </figure>
+
+                <figure class="photo-card">
+                    <img src="poto3.jpg/photo3.jpg" alt="Memory 3">
+                    
+                </figure>
+
+               <figure class="photo-card">
+                    <img src="photo4.jpg/photo4.jpg" alt="Memory 4">
+                  
+                </figure>
+
+              
+            </div>
+        </section>
+
+        <!-- APPRECIATION LETTER -->
+        <section class="letter card">
+            <div class="letter-flower">🌸</div>
+            <p class="section-label">A LITTLE APPRECIATION</p>
+            
+
+            <div class="letter-text">
+                <p>
+                    I know something unexpected happened, and I know you
+                    have a lot on your mind right now. And on top of that,
+                    you have an exam later.
+                </p>
+
+              
+
+               
+
+                <p>
+                    I'm proud of you for still trying even when things
+                    don't go exactly as planned. Don't let one unexpected
+                    moment make you forget how capable you are.
+                </p>
+
+                <p>You may not always see it, but you're doing better than you think. And no matter how busy life gets or how difficult things may feel, I'm always here for you. 💗</p>
+                <p class="highlight">
+                    Good luck on your exam later dear!. Do your best, omkei?
+                    believe in yourself, and remember that you've got this.
+                    💗
+                </p>
+
+                <p class="signature">
+                    A little reminder from someone who will always be cheering you on, Shan. 
+
+                </p>
+            </div>
+        </section>
+
+        <section class="final-note">
+            <div class="line"></div>
+            <p> Just for you. 💗</p>
+            <div class="small-flowers">🌷 ✿ 🌷</div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,630 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #d9829e;
+    --dark-pink: #b95d7c;
+    --soft-pink: #f8dce6;
+    --pale-pink: #fff7fa;
+    --lavender: #ded7ed;
+    --green: #6f9878;
+    --text: #6d4b58;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.9), transparent 30%),
+        linear-gradient(135deg, #fff8fb, #f8e9f0 55%, #eee9f6);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================
+   DECORATIONS
+========================= */
+
+#decorations {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.float-item {
+    position: absolute;
+    bottom: -30px;
+    animation: floatUp linear forwards;
+    opacity: .65;
+    user-select: none;
+}
+
+.spark {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 12px #eaa5bd;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+/* =========================
+   OPENING
+========================= */
+
+.screen {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(255,255,255,.95), transparent 42%),
+        linear-gradient(135deg, #fffafb, #f8e8ef 55%, #eee9f6);
+    transition: opacity .9s ease, transform .9s ease;
+}
+
+#opening.closing {
+    opacity: 0;
+    transform: scale(1.04);
+    pointer-events: none;
+}
+
+.opening-content {
+    width: min(430px, 94vw);
+    text-align: center;
+}
+
+.eyebrow,
+.section-label {
+    letter-spacing: 3px;
+    font-size: 11px;
+    color: #b47b8e;
+    font-weight: 600;
+}
+
+.eyebrow {
+    margin-bottom: 10px;
+}
+
+.bouquet-wrap {
+    width: min(380px, 92vw);
+    margin: 0 auto -5px;
+    filter: drop-shadow(0 18px 20px rgba(143, 77, 101, .15));
+    transition: transform .9s cubic-bezier(.2,.8,.2,1);
+}
+
+.bouquet-wrap.opening {
+    transform: scale(1.08) translateY(-8px);
+}
+
+.bouquet {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* bouquet SVG */
+.shadow {
+    fill: rgba(117, 70, 91, .12);
+}
+
+.stems {
+    stroke: var(--green);
+    stroke-width: 7;
+}
+
+.leaves {
+    fill: #78a181;
+    opacity: .95;
+}
+
+.tulip {
+    fill: #e68baa;
+}
+
+.tulip .highlight {
+    fill: #f4b5c9;
+}
+
+.white-tulip {
+    fill: #fffafc;
+    stroke: #e5cbd5;
+    stroke-width: 2;
+}
+
+.white-tulip .highlight {
+    fill: #fff;
+}
+
+.sunflower .petals {
+    fill: #d9a04c;
+}
+
+.sunflower .center,
+.chamomile circle {
+    fill: #855532;
+}
+
+.lavender path {
+    stroke: #6d9275;
+    stroke-width: 5;
+    fill: none;
+}
+
+.lavender .buds {
+    fill: #a89acb;
+}
+
+.chamomile g {
+    fill: white;
+}
+
+.chamomile circle {
+    fill: #e5b65a;
+}
+
+.wrapper-back {
+    fill: #f1b8c9;
+}
+
+.wrapper-left {
+    fill: #f9dce5;
+}
+
+.wrapper-right {
+    fill: #edb1c4;
+}
+
+.wrapper-fold {
+    fill: #fff0f4;
+    opacity: .8;
+}
+
+.ribbon path,
+.ribbon circle {
+    fill: #d87898;
+}
+
+.heart-pick path:first-child {
+    stroke: #7a9b80;
+    stroke-width: 4;
+}
+
+.heart-pick path:last-child {
+    fill: #fff3f6;
+    stroke: #d87898;
+    stroke-width: 3;
+}
+
+.deer circle {
+    fill: #d8b59e;
+}
+
+.deer path {
+    stroke: #704e43;
+    fill: none;
+    stroke-width: 2;
+}
+
+.deer circle:nth-child(n+2) {
+    fill: #e6c6b0;
+}
+
+.tag path {
+    fill: #fffaf7;
+    stroke: #d6a4b4;
+    stroke-width: 2;
+}
+
+.tag text {
+    font-size: 13px;
+    fill: #b45f7d;
+    font-family: Georgia, serif;
+}
+
+.opening-line {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: #96707e;
+    margin: -5px 0 17px;
+}
+
+.gift-button {
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 30px;
+    min-width: 215px;
+    color: white;
+    background: linear-gradient(135deg, #df91a9, #cf7896);
+    box-shadow: 0 10px 25px rgba(194, 91, 124, .25);
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.gift-button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 14px 30px rgba(194, 91, 124, .32);
+}
+
+.gift-button span {
+    margin-left: 5px;
+}
+
+.tiny-footer {
+    margin-top: 22px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #b89aa6;
+}
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+#mainPage {
+    width: min(900px, 94vw);
+    margin: 0 auto;
+    padding: 55px 0 45px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .9s ease, transform .9s ease;
+}
+
+#mainPage.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 7vw, 66px);
+    font-weight: 500;
+    color: #a95572;
+    margin: 8px 0;
+}
+
+.hero h1 span {
+    font-size: .55em;
+}
+
+.hero > p:last-child {
+    color: #957381;
+    font-size: 16px;
+}
+
+.card {
+    background: rgba(255,255,255,.78);
+    border: 1px solid rgba(214, 155, 177, .25);
+    border-radius: 28px;
+    box-shadow: 0 15px 45px rgba(133, 78, 100, .10);
+    backdrop-filter: blur(10px);
+}
+
+.intro {
+    max-width: 680px;
+    margin: 0 auto 18px;
+    padding: 28px;
+    text-align: center;
+}
+
+.mini-flower {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.intro h2,
+.memories h2,
+.letter h2 {
+    font-family: Georgia, serif;
+    font-weight: 500;
+    color: #a45570;
+    margin-bottom: 12px;
+}
+
+.intro p {
+    line-height: 1.8;
+    color: #745966;
+}
+
+/* music */
+.music-card {
+    width: min(680px, 100%);
+    margin: 0 auto 45px;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.music-card strong {
+    display: block;
+    color: #a45570;
+}
+
+.music-card small {
+    color: #a88995;
+}
+
+#musicToggle {
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 50%;
+    color: white;
+    background: #d6819e;
+    cursor: pointer;
+    box-shadow: 0 5px 16px rgba(196, 92, 126, .22);
+}
+
+#musicToggle.playing {
+    animation: musicGlow 1.5s ease-in-out infinite;
+}
+
+/* gallery */
+.memories {
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.memories h2 {
+    font-size: 30px;
+    margin-top: 6px;
+    margin-bottom: 22px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    align-items: center;
+}
+
+.photo-card {
+    grid-column: span 2;
+    background: white;
+    padding: 8px 8px 13px;
+    border-radius: 18px;
+    box-shadow: 0 12px 25px rgba(132, 76, 98, .13);
+    transform: rotate(-1.5deg);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.photo-card:nth-child(2) {
+    transform: rotate(1.5deg);
+}
+
+.photo-card:nth-child(3) {
+    transform: rotate(-2deg);
+}
+
+.photo-card.featured {
+    grid-column: 2 / span 4;
+    transform: rotate(0);
+}
+
+.photo-card:hover {
+    transform: translateY(-6px) scale(1.025) rotate(0);
+    box-shadow: 0 18px 32px rgba(132, 76, 98, .18);
+}
+
+.photo-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 13px;
+    display: block;
+    background: linear-gradient(135deg, #f8dce6, #eee7f4);
+}
+
+.photo-card figcaption {
+    padding-top: 8px;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    color: #9b7080;
+}
+
+/* letter */
+.letter {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 34px 35px;
+    position: relative;
+    overflow: hidden;
+}
+
+.letter::before,
+.letter::after {
+    content: "✿";
+    position: absolute;
+    color: #d9b4c2;
+    font-size: 30px;
+    opacity: .55;
+}
+
+.letter::before {
+    top: 15px;
+    left: 20px;
+}
+
+.letter::after {
+    bottom: 15px;
+    right: 20px;
+}
+
+.letter-flower {
+    font-size: 30px;
+    margin-bottom: 7px;
+}
+
+.letter h2 {
+    font-size: clamp(25px, 5vw, 34px);
+}
+
+.letter-text {
+    margin-top: 20px;
+    font-family: Georgia, serif;
+    line-height: 1.9;
+    color: #715562;
+}
+
+.letter-text p {
+    margin-bottom: 17px;
+}
+
+.letter-text .highlight {
+    text-align: center;
+    color: #a14f6c;
+    font-weight: 600;
+    background: #fff1f5;
+    padding: 14px 16px;
+    border-radius: 18px;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    color: #a87c8c;
+}
+
+.final-note {
+    text-align: center;
+    padding: 35px 0 5px;
+    color: #a27786;
+    font-family: Georgia, serif;
+}
+
+.line {
+    width: 90px;
+    height: 1px;
+    background: #d6a6b7;
+    margin: 0 auto 15px;
+}
+
+.small-flowers {
+    margin-top: 10px;
+    letter-spacing: 6px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    15% {
+        opacity: .65;
+    }
+    to {
+        transform: translateY(-110vh) rotate(240deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(.6);
+        opacity: .2;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: .9;
+    }
+}
+
+@keyframes musicGlow {
+    0%, 100% {
+        box-shadow: 0 5px 16px rgba(196, 92, 126, .22);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(215, 116, 151, .65);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+    #mainPage {
+        padding-top: 35px;
+    }
+
+    .bouquet-wrap {
+        width: min(350px, 94vw);
+    }
+
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .photo-card,
+    .photo-card.featured {
+        width: min(100%, 440px);
+        transform: rotate(0);
+    }
+
+    .photo-card.optional {
+        display: none;
+    }
+
+    .intro,
+    .letter {
+        padding: 25px 20px;
+    }
+
+    .letter-text {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .music-card {
+        margin-bottom: 35px;
+    }
+}
+
+@media (max-height: 700px) and (min-width: 501px) {
+    .bouquet-wrap {
+        width: 300px;
+    }
+
+    .opening-line {
+        margin-top: -2px;
+        margin-bottom: 10px;
+    }
+
+    .tiny-footer {
+        margin-top: 12px;
+    }
+}
